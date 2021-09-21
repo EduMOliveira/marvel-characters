@@ -1,4 +1,6 @@
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { setSelectedCreature } from "../../redux/actions/selectedCreatureActions";
 import { ResultType } from "../../types/creatureApiTypes";
 import {
   CardContainer,
@@ -14,8 +16,10 @@ type CardProps = {
 export function Card(props: CardProps) {
   const history = useHistory();
   const { id, thumbnail, name } = props.data;
+  const dispatch = useDispatch();
 
   const selectedButtonHandler = () => {
+    dispatch(setSelectedCreature(props.data));
     history.push(`/creature/${id}`);
   };
 
