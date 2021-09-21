@@ -1,4 +1,5 @@
 import { useEffect, useState, ChangeEvent } from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCreatures } from "../../redux/actions/creatureActions";
 import { RootState } from "../../redux/store";
@@ -12,6 +13,7 @@ import { SearchButton } from "../../components/SearchButton";
 import { HomeFormWrapper } from "./styles";
 
 export function Home() {
+  const history = useHistory();
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
@@ -35,7 +37,7 @@ export function Home() {
 
   const searchButtonHandler = () => {
     if (search !== "") {
-      //! do anything
+      history.push(`/search/${search}`);
     }
   };
 
