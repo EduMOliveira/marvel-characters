@@ -1,5 +1,8 @@
-import { useState, ChangeEvent } from "react";
+import { useEffect, useState, ChangeEvent } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 import { Input } from "../../components/Input";
+import { getCreatures } from "../../redux/actions/creatureActions";
 import { PageContainer } from "../../components/PageContainer";
 import { SearchButton } from "../../components/SearchButton";
 import { Card } from "../../components/Card";
@@ -9,6 +12,9 @@ import { HomeFormWrapper } from "./styles";
 
 export function Home() {
   const [search, setSearch] = useState("");
+  const dispatch = useDispatch();
+  const creatureState = useSelector((state: RootState) => state.creatures);
+  const { creatures, loading, error } = creatureState;
 
   const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
@@ -20,24 +26,9 @@ export function Home() {
     }
   };
 
-  const data = [
-    {
-      id: 252525,
-      name: "Spider",
-      description: "The SpiderMan",
-      thumbnail: {
-        path: "http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16",
-        extension: "jpg",
-      },
-      series: {
-        items: [
-          {
-            name: "Primeira Série",
-          },
-        ],
-      },
-    },
-  ];
+  useEffect(() => {
+    dispatch(getCreatures(`v1/public/characters?limit=35&offset=0`));
+  }, [dispatch]);
 
   return (
     <PageContainer>
@@ -51,11 +42,11 @@ export function Home() {
       </HomeFormWrapper>
 
       <CardListContainer
-        isLoading={false}
-        isEmpty={data.length === 0}
-        isError={false}
+        isLoading={loading}
+        isEmpty={creatures.results.length === 0}
+        isError={error}
       >
-        {data.map((item) => {
+        {creatures.results.map((item) => {
           return <Card key={item.id} data={item} />;
         })}
       </CardListContainer>
