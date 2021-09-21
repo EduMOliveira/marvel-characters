@@ -1,5 +1,7 @@
 import { ChangeEvent, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { editSelectedCreature } from "../../redux/actions/selectedCreatureActions";
 import { RootState } from "../../redux/store";
 import { PageContainer } from "../../components/PageContainer";
 import { BackButton } from "../../components/BackButton";
@@ -9,6 +11,7 @@ import { TextArea } from "../../components/TextArea";
 import { CreatureBigCard } from "../../components/CreatureBigCard";
 
 export function Creature() {
+  const dispatch = useDispatch();
   const selectedState = useSelector(
     (state: RootState) => state.selectedCreature.selected
   );
@@ -22,6 +25,13 @@ export function Creature() {
   };
 
   const modalCloseHandler = () => {
+    dispatch(
+      editSelectedCreature({
+        ...selectedState,
+        name: formName,
+        description: formDesc,
+      })
+    );
     setShowModal(false);
   };
 
@@ -33,20 +43,24 @@ export function Creature() {
     setFormDesc(e.target.value);
   };
 
-  return (
-    <PageContainer>
-      <BackButton text="Voltar" to="/" />
-      <CreatureBigCard data={selectedState} onEdit={editHandler} />
+  if (selectedState.id === -1) {
+    return <Redirect to={{ pathname: "/" }} />;
+  } else {
+    return (
+      <PageContainer>
+        <BackButton text="Voltar" to="/" />
+        <CreatureBigCard data={selectedState} onEdit={editHandler} />
 
-      <Modal title="Editar" show={showModal} onClose={modalCloseHandler}>
-        <div>Nome</div>
-        <Input value={formName} onChange={inputHandler} />
-        <div>Descrição</div>
-        <TextArea
-          defaultValue={formDesc || `"Sem Descrição"`}
-          onChange={textAreaHandler}
-        />
-      </Modal>
-    </PageContainer>
-  );
+        <Modal title="Editar" show={showModal} onClose={modalCloseHandler}>
+          <div>Nome</div>
+          <Input value={formName} onChange={inputHandler} />
+          <div>Descrição</div>
+          <TextArea
+            defaultValue={formDesc || `"Sem Descrição"`}
+            onChange={textAreaHandler}
+          />
+        </Modal>
+      </PageContainer>
+    );
+  }
 }
