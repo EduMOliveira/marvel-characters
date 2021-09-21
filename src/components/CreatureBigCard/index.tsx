@@ -14,17 +14,16 @@ import {
 
 type CreatureBigCardType = {
   data: ResultType;
+  onEdit: () => void;
 };
 
-export function CreatureBigCard({ data }: CreatureBigCardType) {
+export function CreatureBigCard({ data, onEdit }: CreatureBigCardType) {
   const { description, id, name, series, thumbnail } = data;
 
   return (
     <CreatureCard>
       <CreatureId>#{id}</CreatureId>
-      <CreatureEditButton onClick={() => console.log("editar")}>
-        Editar
-      </CreatureEditButton>
+      <CreatureEditButton onClick={onEdit}>Editar</CreatureEditButton>
       <CreatureCardWrapper>
         <img
           src={`${thumbnail.path}.${thumbnail.extension}`}
