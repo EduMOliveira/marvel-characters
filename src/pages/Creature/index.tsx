@@ -1,15 +1,18 @@
-import { useParams } from "react-router";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 import { PageContainer } from "../../components/PageContainer";
-
-type Params = {
-  id: string;
-};
+import { BackButton } from "../../components/BackButton";
+import { CreatureBigCard } from "../../components/CreatureBigCard";
 
 export function Creature() {
-  const { id }: Params = useParams();
+  const selectedState = useSelector(
+    (state: RootState) => state.selectedCreature.selected
+  );
+
   return (
     <PageContainer>
-      <div>{id}</div>
+      <BackButton text="Voltar" to="/" />
+      <CreatureBigCard data={selectedState} />
     </PageContainer>
   );
 }
