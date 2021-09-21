@@ -1,3 +1,4 @@
+import { useHistory } from "react-router-dom";
 import { ResultType } from "../../types/creatureApiTypes";
 import {
   CardContainer,
@@ -11,7 +12,12 @@ type CardProps = {
 };
 
 export function Card(props: CardProps) {
-  const { thumbnail, name } = props.data;
+  const history = useHistory();
+  const { id, thumbnail, name } = props.data;
+
+  const selectedButtonHandler = () => {
+    history.push(`/creature/${id}`);
+  };
 
   return (
     <CardContainer>
@@ -24,7 +30,7 @@ export function Card(props: CardProps) {
       </CardImage>
       <CardBottomContainer>
         <span>{name}</span>
-        <CardButton>Ver Mais</CardButton>
+        <CardButton onClick={selectedButtonHandler}>Ver Mais</CardButton>
       </CardBottomContainer>
     </CardContainer>
   );
