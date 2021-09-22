@@ -1,4 +1,5 @@
 import axios from "axios";
+const md5 = require("md5");
 
 export const api = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,
@@ -8,6 +9,8 @@ export const api = axios.create({
   params: {
     ts: process.env.REACT_APP_TS,
     apikey: process.env.REACT_APP_PUBLIC_KEY,
-    hash: process.env.REACT_APP_HASH,
+    hash: md5(
+      `${process.env.REACT_APP_TS}${process.env.REACT_APP_PRIVATE_KEY}${process.env.REACT_APP_PUBLIC_KEY}`
+    ),
   },
 });
