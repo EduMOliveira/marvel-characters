@@ -12,7 +12,7 @@ type State = {
   creatures: CreatureResultsType;
 };
 
-const initialState: State = {
+export const initialState: State = {
   error: false,
   loading: false,
   creatures: {

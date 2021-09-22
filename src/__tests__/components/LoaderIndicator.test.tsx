@@ -1,5 +1,5 @@
 import { screen, render } from "../../utils/tests";
-import { LoaderIndicator } from "../LoaderIndicator";
+import { LoaderIndicator } from "../../components/LoaderIndicator";
 
 const props = {
   color: "#000",

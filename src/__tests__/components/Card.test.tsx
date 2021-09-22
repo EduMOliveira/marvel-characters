@@ -1,6 +1,6 @@
 import { render, screen, history } from "../../utils/tests";
 import userEvent from "@testing-library/user-event";
-import { Card } from "../Card";
+import { Card } from "../../components/Card";
 
 const data = {
   id: 9999,

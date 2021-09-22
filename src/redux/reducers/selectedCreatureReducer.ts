@@ -9,7 +9,7 @@ type State = {
   selected: ResultType;
 };
 
-const initialState: State = {
+export const initialState: State = {
   selected: {
     id: -1,
     name: "",

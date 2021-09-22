@@ -1,5 +1,5 @@
 import { screen, render, fireEvent } from "../../utils/tests";
-import { Modal } from "../Modal";
+import { Modal } from "../../components/Modal";
 
 const props = {
   show: true,

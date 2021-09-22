@@ -1,5 +1,5 @@
 import { render, screen } from "../../utils/tests";
-import { PageContainer } from "../PageContainer";
+import { PageContainer } from "../../components/PageContainer";
 
 describe("<PageContainer />", () => {
   it("should render the container element with children elements", () => {
