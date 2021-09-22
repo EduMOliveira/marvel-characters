@@ -14,7 +14,7 @@ export function BackButton({ to, text }: Props) {
 
   return (
     <BackButtonContainer onClick={navigateToHandler}>
-      <IoIosArrowBack size={28} />
+      <IoIosArrowBack data-testid="svg-back" size={28} />
       <span>{text}</span>
     </BackButtonContainer>
   );

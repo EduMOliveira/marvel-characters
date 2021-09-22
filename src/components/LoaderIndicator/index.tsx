@@ -7,5 +7,12 @@ export type LoaderProps = {
 };
 
 export function LoaderIndicator({ size, weight, color }: LoaderProps) {
-  return <LoaderContainer size={size} weight={weight} color={color} />;
+  return (
+    <LoaderContainer
+      data-testid="loader"
+      size={size}
+      weight={weight}
+      color={color}
+    />
+  );
 }
