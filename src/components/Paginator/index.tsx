@@ -18,7 +18,7 @@ export function Paginator({
   offset,
   isLoading,
 }: PaginatorProps) {
-  const roundedNumber = Math.round(items / offset);
+  const roundedNumber = Math.ceil(items / offset);
   const prevEnable = page === 1 || isLoading;
   const nextEnable = roundedNumber <= page || isLoading;
 

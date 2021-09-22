@@ -23,7 +23,6 @@ export function CreatureBigCard({ data, onEdit }: CreatureBigCardType) {
   return (
     <CreatureCard>
       <CreatureId>#{id}</CreatureId>
-      <CreatureEditButton onClick={onEdit}>Editar</CreatureEditButton>
       <CreatureCardWrapper>
         <img
           src={`${thumbnail.path}.${thumbnail.extension}`}
@@ -49,6 +48,7 @@ export function CreatureBigCard({ data, onEdit }: CreatureBigCardType) {
             <CreatureSeriesItem>Sem Série</CreatureSeriesItem>
           )}
         </CreatureSeries>
+        <CreatureEditButton onClick={onEdit}>Editar</CreatureEditButton>
       </CreatureInfo>
     </CreatureCard>
   );

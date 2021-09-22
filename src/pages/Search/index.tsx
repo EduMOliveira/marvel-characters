@@ -22,7 +22,7 @@ export function Search() {
   const creatureState = useSelector((state: RootState) => state.creatures);
   const { creatures, loading, error } = creatureState;
 
-  const itemsPerPage = 14;
+  const itemsPerPage = 16;
   const totalItemsHidden = (page - 1) * itemsPerPage;
 
   useEffect(() => {

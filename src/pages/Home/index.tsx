@@ -20,7 +20,7 @@ export function Home() {
   const creatureState = useSelector((state: RootState) => state.creatures);
   const { creatures, loading, error } = creatureState;
 
-  const itemsPerPage = 35;
+  const itemsPerPage = 40;
   const totalItemsHidden = (page - 1) * itemsPerPage;
 
   useEffect(() => {

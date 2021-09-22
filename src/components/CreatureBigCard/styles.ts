@@ -9,7 +9,7 @@ export const CreatureCard = styled.div`
   min-height: 450px;
   border-radius: 30px;
   padding: 0 60px;
-  margin: 100px 0px;
+  margin: 100px 0;
 
   position: relative;
   display: flex;
@@ -19,13 +19,17 @@ export const CreatureCard = styled.div`
 `;
 
 export const CreatureCardWrapper = styled.div`
-  width: 190px;
-  height: 460px;
-  margin: -30px 20px 20px 0;
+  width: 300px;
+  height: 390px;
+  margin: -30px 20px 20px -90px;
   border-radius: 4px 104px;
-  box-shadow: ${theme.shadow.light};
+  box-shadow: ${theme.shadow.dark};
 
   overflow: hidden;
+
+  @media (max-width: 700px) {
+    margin: -30px 0 20px 0;
+  }
 
   img {
     width: 100%;
@@ -43,12 +47,12 @@ export const CreatureInfo = styled.div`
 
 export const CreatureId = styled.span`
   position: absolute;
-  top: 10px;
-  right: 22px;
+  top: 8px;
+  right: 12px;
 
   font-family: ${theme.font.default};
   font-weight: bold;
-  font-size: 16px;
+  font-size: 15px;
   color: ${theme.colors.lightText};
 `;
 
@@ -61,10 +65,9 @@ export const CreatureTitleWrapper = styled.div`
     color: ${theme.colors.lightText};
     font-family: ${theme.font.default};
     font-weight: bold;
-    font-size: 36px;
+    font-size: 34px;
     background-color: ${theme.colors.detail};
     padding: 6px 10px;
-    word-break: break-all;
   }
 `;
 
@@ -88,8 +91,10 @@ export const CreatureSubTitle = styled.span`
 export const CreatureSeries = styled.div`
   width: 100%;
   height: 100%;
+  min-height: 100px;
   max-height: 180px;
   padding: 4px 8px;
+  margin-bottom: 10px;
 
   border: 0.5px solid rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -130,11 +135,9 @@ export const CreatureSeriesItem = styled.div`
 `;
 
 export const CreatureEditButton = styled.button`
-  position: absolute;
-  top: 40px;
-  right: 19px;
   padding: 6px 16px;
-
+  max-width: 70px;
+  margin: 0 auto;
   border-radius: 8px;
   border: none;
 

@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { theme } from "../../global/styles/theme";
 
 export const CardContainer = styled.div`
-  width: 140px;
-  height: 180px;
+  width: 122px;
+  height: 220px;
   margin: 20px 10px 20px 10px;
 
   box-shadow: ${theme.shadow.dark};
@@ -14,13 +14,13 @@ export const CardContainer = styled.div`
 `;
 
 export const CardImage = styled.div`
-  width: 142px;
-  height: 102px;
+  width: 122px;
+  height: 122px;
 
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: fill;
   }
 `;
 
