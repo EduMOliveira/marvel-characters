@@ -1,5 +1,5 @@
 import { screen, render, fireEvent } from "../../utils/tests";
-import { Input } from "../Input";
+import { Input } from "../../components/Input";
 
 describe("<Input />", () => {
   it("should be able to render input component", () => {

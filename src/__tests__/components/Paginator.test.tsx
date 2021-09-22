@@ -1,5 +1,5 @@
 import { screen, render, fireEvent } from "../../utils/tests";
-import { Paginator } from "../Paginator";
+import { Paginator } from "../../components/Paginator";
 
 const props = {
   prev: jest.fn(),

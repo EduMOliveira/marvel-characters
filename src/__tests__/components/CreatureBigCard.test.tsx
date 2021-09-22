@@ -1,7 +1,7 @@
 import { screen, render } from "../../utils/tests";
 import userEvent from "@testing-library/user-event";
 
-import { CreatureBigCard } from "../CreatureBigCard";
+import { CreatureBigCard } from "../../components/CreatureBigCard";
 
 const props = {
   data: {

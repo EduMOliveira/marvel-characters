@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "../../utils/tests";
-import { TextArea } from "../TextArea";
+import { TextArea } from "../../components/TextArea";
 
 describe("<TextArea />", () => {
   it("should be able to render textarea element", () => {

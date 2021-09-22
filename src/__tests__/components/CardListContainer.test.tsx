@@ -1,5 +1,5 @@
 import { screen, render } from "../../utils/tests";
-import { CardListContainer } from "../CardListContainer";
+import { CardListContainer } from "../../components/CardListContainer";
 
 const FakeCard = () => (
   <div>

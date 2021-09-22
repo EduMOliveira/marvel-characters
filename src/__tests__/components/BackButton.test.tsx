@@ -1,6 +1,6 @@
 import { render, screen, history } from "../../utils/tests";
 import userEvent from "@testing-library/user-event";
-import { BackButton } from "../BackButton";
+import { BackButton } from "../../components/BackButton";
 
 const props = {
   to: "/",
