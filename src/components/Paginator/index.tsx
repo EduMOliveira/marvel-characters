@@ -31,15 +31,15 @@ export function Paginator({
   };
 
   return (
-    <PaginatorContainer>
+    <PaginatorContainer data-testid="paginator">
       <PaginatorButton disable={prevEnable} onClick={prevHandler}>
-        <FaAngleLeft size={18} />
+        <FaAngleLeft data-testid="svg-paginator-left" size={18} />
       </PaginatorButton>
       <PaginatorText>{`${page}/${
         roundedNumber < 1 ? 1 : roundedNumber
       }`}</PaginatorText>
       <PaginatorButton disable={nextEnable} onClick={nextHandler}>
-        <FaAngleRight size={18} />
+        <FaAngleRight data-testid="svg-paginator-right" size={18} />
       </PaginatorButton>
     </PaginatorContainer>
   );

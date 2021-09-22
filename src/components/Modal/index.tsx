@@ -10,7 +10,7 @@ type ModalProps = {
 
 export function Modal({ show, onClose, children, title }: ModalProps) {
   return (
-    <ModalContainer show={show}>
+    <ModalContainer data-testid="modal" show={show}>
       <ModalTitle>{title}</ModalTitle>
       {children}
       <ModalCloseButton onClick={onClose}>Salvar</ModalCloseButton>
